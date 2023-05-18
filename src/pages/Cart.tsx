@@ -1,4 +1,5 @@
 import React from "react";
+import { useCart } from "../contexts/CartContext";
 import CartCard from "../components/CartCard";
 import Product1001 from "../assets/images/1001.png";
 import Product1002 from "../assets/images/1002.png";
@@ -6,6 +7,7 @@ import Product1003 from "../assets/images/1003.png";
 import Product1004 from "../assets/images/1004.png";
 
 const Cart = () => {
+  const { total } = useCart();
   const dummyCartItems = [
     {
       id: "1001",
@@ -36,7 +38,10 @@ const Cart = () => {
   return (
     <main className="w-[1200px] min-h-[88vh]">
       <section>
-        <p className="text-center font-bold text-[1.5rem]">Cart: 2</p>
+        <p className="text-center font-bold text-[1.5rem]">
+          Cart: 2 / ${total}
+        </p>
+
         <div className="">
           {dummyCartItems?.map((item) => (
             <CartCard

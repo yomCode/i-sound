@@ -14,7 +14,7 @@ const Header = () => {
   ];
 
   return (
-    <nav className="h-[100px] bg-white w-full z-20 border-b border-gray-200  mb-[5rem] mt-2">
+    <nav className="h-[70px] bg-white w-full z-20 border-b border-gray-200  mb-[5rem] mt-2">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <Link to="/" className="flex items-center">
           <span className="self-center text-2xl font-semibold whitespace-nowrap">
