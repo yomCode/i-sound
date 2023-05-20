@@ -1,7 +1,9 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
+import { useCart } from "../contexts/CartContext";
 
 const Header = () => {
+  const { cartList } = useCart();
   const menu = [
     {
       name: "Home",
@@ -22,7 +24,7 @@ const Header = () => {
           </span>
         </Link>
         <div className="flex md:order-2">
-          <p className="text-xl">Cart: 2</p>
+          <p className="text-xl">Cart: {cartList?.length}</p>
           <button
             data-collapse-toggle="navbar-sticky"
             type="button"
@@ -38,9 +40,9 @@ const Header = () => {
               viewBox="0 0 20 20"
             >
               <path
-                fill-rule="evenodd"
+                fillRule="evenodd"
                 d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                clip-rule="evenodd"
+                clipRule="evenodd"
               ></path>
             </svg>
           </button>
@@ -51,7 +53,7 @@ const Header = () => {
         >
           <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg  md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white">
             {menu?.map((item) => (
-              <li>
+              <li key={item?.name}>
                 <NavLink
                   to={item?.path}
                   className="block py-2 pl-3 pr-4 bg-blue-700 rounded md:bg-transparent text-xl md:p-0 nav-link"

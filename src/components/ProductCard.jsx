@@ -1,14 +1,22 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useCart } from "../contexts/CartContext";
 
-export interface ProductCardProps {
-  id: string;
-  price: number;
-  image: string;
-  description: string;
-}
+// export interface ProductCardProps {
+//   id: string;
+//   price: number;
+//   image: string;
+//   description: string;
+// }
 
-const ProductCard = ({ id, price, image, description }: ProductCardProps) => {
+const ProductCard = ({ id, price, image, description }) => {
+  const { addToCart, cartList } = useCart();
+
+  const add = () => {
+    const product = { id, price, image, description };
+    addToCart(product);
+    console.log({ cartList });
+  };
   //dark:bg-gray-800 dark:border-gray-700
   //dark:text-white
   return (
@@ -24,12 +32,12 @@ const ProductCard = ({ id, price, image, description }: ProductCardProps) => {
         </Link>
         <div className="flex items-center justify-between">
           <span className="text-3xl font-bold text-gray-900">${price}</span>
-          <Link
-            to="#"
+          <button
+            onClick={add}
             className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
           >
             Add to cart
-          </Link>
+          </button>
         </div>
       </div>
     </div>

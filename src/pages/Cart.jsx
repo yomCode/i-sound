@@ -7,7 +7,7 @@ import Product1003 from "../assets/images/1003.png";
 import Product1004 from "../assets/images/1004.png";
 
 const Cart = () => {
-  const { total } = useCart();
+  const { total, cartList } = useCart();
   const dummyCartItems = [
     {
       id: "1001",
@@ -39,12 +39,13 @@ const Cart = () => {
     <main className="w-[1200px] min-h-[88vh]">
       <section>
         <p className="text-center font-bold text-[1.5rem]">
-          Cart: 2 / ${total}
+          Cart: {cartList?.length} / ${total}
         </p>
 
         <div className="">
-          {dummyCartItems?.map((item) => (
+          {cartList?.map((item) => (
             <CartCard
+              key={item?.id}
               id={item?.id}
               price={item?.price}
               image={item?.image}

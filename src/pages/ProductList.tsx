@@ -53,6 +53,7 @@ const ProductList = () => {
         <div className="flex flex-wrap gap-4">
           {dummyProducts?.map((product) => (
             <ProductCard
+              key={product?.id}
               id={product?.id}
               description={product?.description}
               image={product?.image}

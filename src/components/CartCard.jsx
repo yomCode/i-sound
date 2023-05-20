@@ -1,7 +1,7 @@
 import React from "react";
 import { ProductCardProps } from "./ProductCard";
 
-const CartCard = ({ id, price, image, description }: ProductCardProps) => {
+const CartCard = ({ id, price, image, description }) => {
   return (
     <div className="flex items-center justify-between shadow-lg mt-4 bg-red px-2 py-2">
       <div className="">
