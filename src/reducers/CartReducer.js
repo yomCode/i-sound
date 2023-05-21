@@ -5,8 +5,8 @@ export const CartReducer = (state, action) => {
     case "ADD_TO_CART":
       return { ...state, cartList: payload?.products };
 
-    // case "REMOVE_FROM_CART":
-    //   return;
+    case "REMOVE_FROM_CART":
+      return { ...state, cartList: payload?.products };
 
     // case "CLEAR_CART":
     //   return;

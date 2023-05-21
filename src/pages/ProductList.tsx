@@ -11,37 +11,37 @@ const ProductList = () => {
   const dummyProducts = [
     {
       id: "1001",
-      description: "Product 1",
+      description: "Sony wh-Ch510 Wireless Headphones",
       price: 100,
       image: Product1001,
     },
     {
       id: "1002",
-      description: "Product 2",
+      description: "boAt Rockerz 450 Bluetooth On-Ear Headphone",
       price: 200,
       image: Product1002,
     },
     {
       id: "1003",
-      description: "Product 3",
+      description: "boAt Rockerz 450 Bluetooth On-Ear Headphone",
       price: 300,
       image: Product1003,
     },
     {
       id: "1004",
-      description: "Product 4",
+      description: "Sony wh-Ch510 Wireless Headphones",
       price: 400,
       image: Product1004,
     },
     {
       id: "1005",
-      description: "Product 5",
+      description: "Sony wh-Ch510 Wireless Headphones",
       price: 500,
       image: Product1005,
     },
     {
       id: "1006",
-      description: "Product 5",
+      description: "boAt Rockerz 450 Bluetooth On-Ear Headphone",
       price: 500,
       image: Product1006,
     },

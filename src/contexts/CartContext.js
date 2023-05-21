@@ -24,10 +24,23 @@ export const CardProvider = ({ children }) => {
     });
   };
 
+  const removeFromCart = (product) => {
+    const updatedProductList = state?.cartList?.filter(
+      (item) => item?.id !== product?.id
+    );
+    dispatch({
+      type: "REMOVE_FROM_CART",
+      payload: {
+        products: updatedProductList,
+      },
+    });
+  };
+
   const cartContextValue = {
     total: state?.total,
     cartList: state?.cartList,
     addToCart,
+    removeFromCart,
   };
 
   return (
