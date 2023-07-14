@@ -1,26 +1,22 @@
 import React from "react";
-import { useCart } from "../contexts/CartContext";
 
-const CartCard = ({ id, price, image, description }) => {
-  const product = { id, price, image, description };
-  const { removeFromCart, cartList } = useCart();
-
+const CartCard = ({ product }) => {
   return (
     <div className="flex items-center justify-between shadow-lg mt-4 bg-red px-2 py-2">
       <div className="">
-        <img src={image} alt="" className="w-[120px]" />
+        <img src={product?.image} alt="" className="w-[120px]" />
       </div>
       <div className="basis-2/4">
-        <p>{description}</p>
+        <p>{product?.description}</p>
       </div>
       <div>
-        <p>${price}</p>
+        <p>Qty: 1</p>
       </div>
       <div>
-        <button
-          onClick={() => removeFromCart(product)}
-          className="bg-[red] p-2 rounded-lg text-white font-bold"
-        >
+        <p>${product?.price}</p>
+      </div>
+      <div>
+        <button className="bg-[red] p-2 rounded-lg text-white font-bold">
           Remove
         </button>
       </div>

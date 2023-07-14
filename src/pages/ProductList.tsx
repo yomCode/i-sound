@@ -54,10 +54,7 @@ const ProductList = () => {
           {dummyProducts?.map((product) => (
             <ProductCard
               key={product?.id}
-              id={product?.id}
-              description={product?.description}
-              image={product?.image}
-              price={product?.price}
+              product={product}
             />
           ))}
         </div>
