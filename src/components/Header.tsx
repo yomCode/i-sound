@@ -1,7 +1,9 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
 
 const Header = () => {
+  const cartList = useSelector((state: any) => state?.cartState?.cartList);
   const menu = [
     {
       name: "Home",
@@ -22,7 +24,7 @@ const Header = () => {
           </span>
         </Link>
         <div className="flex md:order-2">
-          <p className="text-xl">Cart: 0</p>
+          <p className="text-xl">Cart: {cartList?.length}</p>
           <button
             data-collapse-toggle="navbar-sticky"
             type="button"

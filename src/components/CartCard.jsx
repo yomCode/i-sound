@@ -1,6 +1,9 @@
 import React from "react";
+import { removeFromCart } from "../store/CartSlice";
+import { useDispatch } from "react-redux";
 
 const CartCard = ({ product }) => {
+  const dispatch = useDispatch();
   return (
     <div className="flex items-center justify-between shadow-lg mt-4 bg-red px-2 py-2">
       <div className="">
@@ -16,7 +19,10 @@ const CartCard = ({ product }) => {
         <p>${product?.price}</p>
       </div>
       <div>
-        <button className="bg-[red] p-2 rounded-lg text-white font-bold">
+        <button
+          onClick={() => dispatch(removeFromCart(product))}
+          className="bg-[red] p-2 rounded-lg text-white font-bold"
+        >
           Remove
         </button>
       </div>

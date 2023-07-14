@@ -1,18 +1,21 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import CartCard from "../components/CartCard";
 
 const Cart = () => {
+  const cartList = useSelector((state) => state?.cartState?.cartList);
+  const total = useSelector((state) => state?.cartState?.total);
   return (
     <main className="w-[1200px] min-h-[88vh]">
       <section>
         <p className="text-center font-bold text-[1.5rem]">
-          Cart: {0} / ${0}
+          Cart: {cartList?.length} / ${total}
         </p>
 
         <div className="">
-          {/* {cartList?.map((item) => (
+          {cartList?.map((item) => (
             <CartCard key={item?.id} product={item} />
-          ))} */}
+          ))}
         </div>
       </section>
     </main>
