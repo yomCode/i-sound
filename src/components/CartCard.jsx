@@ -5,20 +5,14 @@ import { useDispatch } from "react-redux";
 const CartCard = ({ product }) => {
   const dispatch = useDispatch();
   return (
-    <div className="flex items-center justify-between shadow-lg mt-4 bg-red px-2 py-2">
-      <div className="">
+    <div className="flex items-center flex-col md:flex-row gap-2 justify-between shadow-lg mt-8 bg-red p-5">
+      <div className="flex items-center gap-4 flex-col md:flex-row basis-1/2">
         <img src={product?.image} alt="" className="w-[120px]" />
-      </div>
-      <div className="basis-2/4">
         <p>{product?.description}</p>
       </div>
-      <div>
+      <div className="flex items-center gap-4">
         <p>Qty: 1</p>
-      </div>
-      <div>
         <p>${product?.price}</p>
-      </div>
-      <div>
         <button
           onClick={() => dispatch(removeFromCart(product))}
           className="bg-[red] p-2 rounded-lg text-white font-bold"
