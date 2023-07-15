@@ -6,6 +6,7 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 const Header = () => {
   const cartList = useSelector((state: any) => state?.cartState?.cartList);
   const [windowWidth, setWindowWidth] = React.useState<number>(0);
+  const [showMobileMenu, setShowMobileMenu] = React.useState<boolean>(false);
 
   const handleResize = () => {
     setWindowWidth(window.innerWidth);
@@ -19,7 +20,10 @@ const Header = () => {
     };
   }, []);
 
-  console.log({ windowWidth });
+  useEffect(() => {
+    windowWidth > 768 && setShowMobileMenu(false);
+  }, [windowWidth]);
+
   const menu = [
     {
       name: "Home",
@@ -45,9 +49,12 @@ const Header = () => {
         <button
           data-collapse-toggle="navbar-sticky"
           type="button"
-          className="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+          className={`inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden ${
+            showMobileMenu ? "bg-gray-700" : "bg-white"
+          }`}
           aria-controls="navbar-sticky"
           aria-expanded="false"
+          onClick={() => setShowMobileMenu(!showMobileMenu)}
         >
           <span className="sr-only">Open main menu</span>
           <svg
@@ -81,6 +88,26 @@ const Header = () => {
             ))}
           </ul>
         </div>
+        {showMobileMenu && (
+          <div className="absolute right-0 top-20 bg-white">
+            <ul className="flex">
+              {menu?.map((item) => (
+                <li
+                  key={item?.name}
+                  onClick={() => setShowMobileMenu(!showMobileMenu)}
+                >
+                  <NavLink
+                    to={item?.path}
+                    className="block py-2 pl-3 pr-4 rounded md:bg-transparent text-xl md:p-0 nav-link"
+                    aria-current="page"
+                  >
+                    {item?.name}
+                  </NavLink>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
     </nav>
   );
