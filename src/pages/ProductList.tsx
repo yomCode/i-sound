@@ -48,14 +48,11 @@ const ProductList = () => {
   ];
 
   return (
-    <main className="min-h-[88vh] ">
+    <main className="min-h-[88vh] w-[100%] p-2">
       <section>
-        <div className="flex flex-wrap gap-4">
+        <div className="flex flex-wrap justify-center gap-4">
           {dummyProducts?.map((product) => (
-            <ProductCard
-              key={product?.id}
-              product={product}
-            />
+            <ProductCard key={product?.id} product={product} />
           ))}
         </div>
       </section>
