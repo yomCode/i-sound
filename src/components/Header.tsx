@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
 import { AiOutlineShoppingCart } from "react-icons/ai";
+import Logo from "../assets/images/myLogo.png";
 
 const Header = () => {
   const cartList = useSelector((state: any) => state?.cartState?.cartList);
@@ -39,6 +40,7 @@ const Header = () => {
     <nav className="h-[70px] bg-white w-full z-20 border-b border-gray-200  mb-[5rem] mt-2">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <Link to="/" className="flex items-center">
+          <img src={Logo} alt="logo" className="w-10 h-10 mr-2" />
           <span className="self-center text-2xl font-semibold whitespace-nowrap">
             i-Sound
           </span>
